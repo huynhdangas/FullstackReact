@@ -60,15 +60,26 @@
             .language-vi {
                 cursor: pointer;
                 color: #4e4c4c;
+                opacity: 0.2;
                 &.active {
+                    opacity: 1;
                     color: orange;
+                }
+                &:hover {
+                    opacity: 1;
                 }
             }
             .language-en {
                 cursor: pointer;
+                opacity: 0.2;
                 color: #4e4c4c;
                 &.active {
+                    opacity: 1;
+
                     color: blue;
+                }
+                &:hover {
+                    opacity: 1;
                 }
             }
         }
