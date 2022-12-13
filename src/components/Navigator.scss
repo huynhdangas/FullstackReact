@@ -35,9 +35,10 @@
                 height: 35px;
                 line-height: 35px;
                 text-transform: none;
+
                 .menu-link {
                     text-decoration: none;
-                    color: $text-in-light;
+                    color: black;
                 }
                 .sub-menu-list {
                     display: none;
@@ -68,6 +69,12 @@
                             color: $colormain;
                         }
                     }
+                }
+                &.active {
+                    a {
+                        color: orange;
+                    }
+                    background: #ededed;
                 }
                 &.active span {
                     font-weight: 500;
