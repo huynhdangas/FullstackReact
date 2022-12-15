@@ -1,0 +1,27 @@
+table {
+    margin-top: 30px;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    td,
+    th {
+        border: 1px solid white;
+        text-align: left;
+        padding: 8px;
+        .btn-edit,
+        .btn-delete {
+            border: none;
+            outline: none;
+            margin: 0 5px;
+            color: black;
+            background-color: inherit;
+        }
+    }
+    th {
+        background-color: #348934;
+    }
+
+    tr:nth-child(even) {
+        background-color: orange;
+    }
+}
