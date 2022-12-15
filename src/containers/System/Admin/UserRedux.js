@@ -3,7 +3,7 @@ import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import "./UserRedux.scss";
 // import { getAllCodeService } from "../../../services/userService";
-import { LANGUAGES, CRUD_ACTIONS } from "../../../utils";
+import { LANGUAGES, CRUD_ACTIONS, CommonUtils } from "../../../utils";
 import * as actions from "../../../store/actions";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
@@ -99,20 +99,22 @@ class UserRedux extends Component {
                 role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : "",
 
                 avatar: "",
+                previewImg: "",
                 action: CRUD_ACTIONS.CREATE,
             });
         }
     }
 
-    handleOnChangeImage = (event) => {
+    handleOnChangeImage = async (event) => {
         let data = event.target.files;
         let file = data[0];
         if (file) {
+            let base64 = await CommonUtils.getBase64(file);
             let objectUrl = URL.createObjectURL(file);
 
             this.setState({
                 previewImg: objectUrl,
-                avatar: file,
+                avatar: base64,
             });
         }
     };
@@ -142,6 +144,7 @@ class UserRedux extends Component {
                 gender: this.state.gender,
                 role: this.state.role,
                 position: this.state.position,
+                avatar: this.state.avatar,
             });
         }
         if (action === CRUD_ACTIONS.EDIT) {
@@ -157,7 +160,7 @@ class UserRedux extends Component {
                 gender: this.state.gender,
                 role: this.state.role,
                 position: this.state.position,
-                // avatar: this.state.avatar,
+                avatar: this.state.avatar,
             });
         }
     };
@@ -190,7 +193,11 @@ class UserRedux extends Component {
     };
 
     handleEditUserFromParent = (user) => {
-        console.log("handle edut us from parent", user);
+        let imageBase64 = "";
+        if (user.image) {
+            imageBase64 = new Buffer(user.image, "base64").toString("binary");
+        }
+
         this.setState({
             email: user.email,
             password: "HARDCODE",
@@ -202,6 +209,7 @@ class UserRedux extends Component {
             position: user.positionId,
             role: user.roleId,
             avatar: "",
+            previewImg: imageBase64,
             id: user.id,
             action: CRUD_ACTIONS.EDIT,
         });
