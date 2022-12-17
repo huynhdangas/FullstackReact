@@ -28,14 +28,17 @@ class OutStandingDoctor extends Component {
 
     render() {
         let { arrDoctors } = this.state;
-        arrDoctors = arrDoctors.concat(arrDoctors).concat(arrDoctors);
         let { language } = this.props;
         return (
             <div className="section-share out-standing-doctor">
                 <div className="section-container">
                     <div className="section-header">
-                        <span>Bác sĩ nổi bật tuần qua</span>
-                        <button>Xem thêm</button>
+                        <span>
+                            <FormattedMessage id="homepage.out-standing-doctor" />
+                        </span>
+                        <button>
+                            <FormattedMessage id="homepage.more-info" />
+                        </button>
                     </div>
                     <div className="section-body">
                         <Slider {...this.props.settings}>
@@ -49,8 +52,8 @@ class OutStandingDoctor extends Component {
                                             "base64"
                                         ).toString("binary");
                                     }
-                                    let nameVi = `${item.positionData.valueVi}, ${item.firstName}, ${item.lastName}`;
-                                    let nameEn = `${item.positionData.valueEn}, ${item.firstName}, ${item.lastName}`;
+                                    let nameVi = `${item.positionData.valueVi}, ${item.firstName} ${item.lastName}`;
+                                    let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`;
                                     return (
                                         <div
                                             className="section-customize"
@@ -66,12 +69,12 @@ class OutStandingDoctor extends Component {
                                                     ></div>
                                                 </div>
                                                 <div className="position text-center">
-                                                    <h4>
+                                                    <h5>
                                                         {language ===
                                                         LANGUAGES.VI
                                                             ? nameVi
                                                             : nameEn}
-                                                    </h4>
+                                                    </h5>
                                                     <div>{item.positionId}</div>
                                                 </div>
                                             </div>

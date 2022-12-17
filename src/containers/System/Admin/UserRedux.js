@@ -381,7 +381,7 @@ class UserRedux extends Component {
                                             return (
                                                 <option
                                                     key={index}
-                                                    value={item.key}
+                                                    value={item.keyMap}
                                                 >
                                                     {language === LANGUAGES.VI
                                                         ? item.valueVi
@@ -408,7 +408,7 @@ class UserRedux extends Component {
                                             return (
                                                 <option
                                                     key={index}
-                                                    value={item.key}
+                                                    value={item.keyMap}
                                                 >
                                                     {language === LANGUAGES.VI
                                                         ? item.valueVi

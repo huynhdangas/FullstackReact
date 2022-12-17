@@ -21,6 +21,9 @@
         background: #d7d7d7 !important;
     }
 }
+.slick-disabled {
+    display: none !important;
+}
 .slick-prev:before {
     font-family: FontAwesome !important;
     content: "<i class=" fas fa-step-backward "></i>";

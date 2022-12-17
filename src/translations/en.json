@@ -63,5 +63,9 @@
         "role": "Role",
         "image": "Image",
         "save": "Save"
+    },
+    "homepage": {
+        "out-standing-doctor": "Doctor outstanding",
+        "more-info": "More"
     }
 }
